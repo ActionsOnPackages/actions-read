@@ -18,3 +18,4 @@ jobs:
           manifest_uri="${host}/v2/${nwo}/manifests/${tag}"
           GHCR_TOKEN=$(echo ${{ secrets.GITHUB_TOKEN }} | base64)
           curl -X GET "${manifest_uri}" -H "Authorization: Bearer ${GHCR_TOKEN}" -H "Accept: application/vnd.oci.image.manifest.v1+json"
+          curl -X GET "https://ghcr.io/v2/${nwo}/tags/list"
