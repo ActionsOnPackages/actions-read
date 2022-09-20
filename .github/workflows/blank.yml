@@ -26,7 +26,7 @@ jobs:
           host="https://ghcr.io"
           download_uri="${host}/v2/${nwo}/blobs/sha256:9615725b3f6a591004d64aa519b46c0131b4e8f67812c983f9893429c49e54e6"
           GHCR_TOKEN=$(echo ${{ secrets.GITHUB_TOKEN }} | base64)
-          curl -X GET "${download_uri}" -H "Authorization: Bearer ${GHCR_TOKEN}" -H "Accept: application/vnd.oci.image.manifest.v1+json"
+          curl -i -X GET "${download_uri}" -H "Authorization: Bearer ${GHCR_TOKEN}" -H "Accept: application/vnd.oci.image.manifest.v1+json"
       - name: Download
         run: |
           nwo="ActionsOnPackages/action-internal"
