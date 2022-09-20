@@ -24,6 +24,6 @@ jobs:
           nwo="ActionsOnPackages/action-internal"
           tag="1.0.1-actionsdemo"
           host="https://ghcr.io"
-          download_uri="http://api.github.localhost/repos/${nwo}/actions/package/${tag}?artifact_type=tarball&"
+          download_uri="https://api.github.com/repos/${nwo}/actions/package/${tag}?artifact_type=tarball&"
           GHCR_TOKEN=$(echo ${{ secrets.GITHUB_TOKEN }} | base64)
           curl -X GET "${download_uri}" -H "Authorization: Bearer ${GHCR_TOKEN}" -H "Accept: application/vnd.oci.image.manifest.v1+json"
